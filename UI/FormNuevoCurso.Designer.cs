@@ -32,14 +32,14 @@
             this.btn_cerrar_alumno = new System.Windows.Forms.Button();
             this.lbl_titulo_alumno = new System.Windows.Forms.Label();
             this.btn_modificar_usuario = new System.Windows.Forms.Button();
-            this.btn_alta_curso = new System.Windows.Forms.Button();
             this.txtPrecio = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
             this.lbl_apellido = new System.Windows.Forms.Label();
             this.lbl_nombre = new System.Windows.Forms.Label();
             this.dgvCursos = new System.Windows.Forms.DataGridView();
             this.chkEsProgramaCompleto = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.btn_alta_curso = new UI.UserControls.BotonAnimado();
+            this.txtNombre = new UI.UserControls.TextBoxValidado();
             this.panelTituloAlumno.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCursos)).BeginInit();
             this.SuspendLayout();
@@ -93,32 +93,12 @@
             this.btn_modificar_usuario.UseVisualStyleBackColor = true;
             this.btn_modificar_usuario.Click += new System.EventHandler(this.btn_modificar_usuario_Click);
             // 
-            // btn_alta_curso
-            // 
-            this.btn_alta_curso.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btn_alta_curso.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btn_alta_curso.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_alta_curso.Location = new System.Drawing.Point(18, 241);
-            this.btn_alta_curso.Name = "btn_alta_curso";
-            this.btn_alta_curso.Size = new System.Drawing.Size(119, 28);
-            this.btn_alta_curso.TabIndex = 20;
-            this.btn_alta_curso.Text = "Agregar Curso";
-            this.btn_alta_curso.UseVisualStyleBackColor = true;
-            this.btn_alta_curso.Click += new System.EventHandler(this.btn_alta_curso_Click);
-            // 
             // txtPrecio
             // 
             this.txtPrecio.Location = new System.Drawing.Point(109, 132);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(170, 20);
             this.txtPrecio.TabIndex = 18;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(109, 106);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(170, 20);
-            this.txtNombre.TabIndex = 17;
             // 
             // lbl_apellido
             // 
@@ -170,18 +150,40 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btn_alta_curso
+            // 
+            this.btn_alta_curso.BackColor = System.Drawing.Color.Green;
+            this.btn_alta_curso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_alta_curso.ForeColor = System.Drawing.Color.White;
+            this.btn_alta_curso.Location = new System.Drawing.Point(33, 241);
+            this.btn_alta_curso.Name = "btn_alta_curso";
+            this.btn_alta_curso.Size = new System.Drawing.Size(112, 23);
+            this.btn_alta_curso.TabIndex = 25;
+            this.btn_alta_curso.Text = "Agregar Curso";
+            this.btn_alta_curso.UseVisualStyleBackColor = false;
+            this.btn_alta_curso.Click += new System.EventHandler(this.btn_alta_curso_Click);
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.BackColor = System.Drawing.Color.LightPink;
+            this.txtNombre.Location = new System.Drawing.Point(109, 102);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.PatronRegex = "^[a-zA-Z\\\\s]+$";
+            this.txtNombre.Size = new System.Drawing.Size(170, 20);
+            this.txtNombre.TabIndex = 26;
+            // 
             // FormNuevoCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.btn_alta_curso);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.chkEsProgramaCompleto);
             this.Controls.Add(this.dgvCursos);
             this.Controls.Add(this.btn_modificar_usuario);
-            this.Controls.Add(this.btn_alta_curso);
             this.Controls.Add(this.txtPrecio);
-            this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lbl_apellido);
             this.Controls.Add(this.lbl_nombre);
             this.Controls.Add(this.panelTituloAlumno);
@@ -203,13 +205,13 @@
         private System.Windows.Forms.Button btn_cerrar_alumno;
         private System.Windows.Forms.Label lbl_titulo_alumno;
         private System.Windows.Forms.Button btn_modificar_usuario;
-        private System.Windows.Forms.Button btn_alta_curso;
         private System.Windows.Forms.TextBox txtPrecio;
-        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lbl_apellido;
         private System.Windows.Forms.Label lbl_nombre;
         private System.Windows.Forms.DataGridView dgvCursos;
         private System.Windows.Forms.CheckBox chkEsProgramaCompleto;
         private System.Windows.Forms.Button button1;
+        private UserControls.BotonAnimado btn_alta_curso;
+        private UserControls.TextBoxValidado txtNombre;
     }
 }

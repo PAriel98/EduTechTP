@@ -41,14 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComponenteEducativoBE.cs" />
     <Compile Include="CursoBE.cs" />
     <Compile Include="Docente.cs" />
     <Compile Include="Estudiante.cs" />
+    <Compile Include="InscripcionCursoBE.cs" />
+    <Compile Include="NotificacionAcademicaBE.cs" />
+    <Compile Include="ProgramaBE.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="RecaudacionClase.cs" />
+    <Compile Include="ReporteRecaudacionBE.cs" />
     <Compile Include="UsuarioAcademico.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsuarioBE.cs" />

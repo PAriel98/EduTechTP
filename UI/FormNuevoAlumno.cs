@@ -91,5 +91,10 @@ namespace UI
             txtDNI.Clear(); 
             estudianteSeleccionado = null;
         }
+
+        private void textBoxValidado1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

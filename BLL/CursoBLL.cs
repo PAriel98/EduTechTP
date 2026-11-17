@@ -1,10 +1,11 @@
-﻿using System;
+﻿using BE;
+using DAL;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BE;
-using DAL;
 
 namespace BLL
 {
@@ -40,6 +41,19 @@ namespace BLL
             {
                 throw new Exception("El precio debe ser un valor positivo.");
             }
+        }
+
+        public DataTable ObtenerInscriptosPorCurso() 
+        { 
+            return cursoDAL.ObtenerInscriptosPorCurso();
+        }
+        public DataTable ObtenerPromediosPorCurso() 
+        { 
+            return cursoDAL.ObtenerPromediosPorCurso(); 
+        }
+        public DataTable ObtenerAprobadosVsReprobados()
+        { 
+            return cursoDAL.ObtenerAprobadosVsReprobados();
         }
     }
 }

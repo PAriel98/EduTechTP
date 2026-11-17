@@ -49,7 +49,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -79,11 +81,29 @@
     <Compile Include="FormCambiarIdioma.Designer.cs">
       <DependentUpon>FormCambiarIdioma.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDocente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDocente.Designer.cs">
+      <DependentUpon>FormDocente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEstadisticas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEstadisticas.Designer.cs">
+      <DependentUpon>FormEstadisticas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormGestionarFamilia.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormGestionarFamilia.Designer.cs">
       <DependentUpon>FormGestionarFamilia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormInformacionClases.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInformacionClases.Designer.cs">
+      <DependentUpon>FormInformacionClases.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMDI.cs">
       <SubType>Form</SubType>
@@ -109,6 +129,18 @@
     <Compile Include="FormNuevoCurso.Designer.cs">
       <DependentUpon>FormNuevoCurso.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormRecaudacionClase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRecaudacionClase.Designer.cs">
+      <DependentUpon>FormRecaudacionClase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTotalRecaudado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTotalRecaudado.Designer.cs">
+      <DependentUpon>FormTotalRecaudado.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTraducible.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +152,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\txtValidar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\btnAnimado.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="FormABMFamilias.resx">
       <DependentUpon>FormABMFamilias.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,8 +167,17 @@
     <EmbeddedResource Include="FormCambiarIdioma.resx">
       <DependentUpon>FormCambiarIdioma.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDocente.resx">
+      <DependentUpon>FormDocente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEstadisticas.resx">
+      <DependentUpon>FormEstadisticas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormGestionarFamilia.resx">
       <DependentUpon>FormGestionarFamilia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInformacionClases.resx">
+      <DependentUpon>FormInformacionClases.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMDI.resx">
       <DependentUpon>FormMDI.cs</DependentUpon>
@@ -143,6 +190,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNuevoCurso.resx">
       <DependentUpon>FormNuevoCurso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRecaudacionClase.resx">
+      <DependentUpon>FormRecaudacionClase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTotalRecaudado.resx">
+      <DependentUpon>FormTotalRecaudado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -177,6 +230,10 @@
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{8ba03ea7-3621-49d9-a071-e75bf08d023b}</Project>
       <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{e95a31d6-b689-4988-a71e-d8a8b8963dd0}</Project>
+      <Name>DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\SEGURIDAD\SEGURIDAD.csproj">
       <Project>{8591daef-c56e-4c14-9ad9-baefbcb7dca1}</Project>

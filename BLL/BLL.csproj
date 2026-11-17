@@ -42,8 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CursoBLL.cs" />
+    <Compile Include="DocenteBLL.cs" />
     <Compile Include="EstudianteBLL.cs" />
+    <Compile Include="InscripcionBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecaudacionBLL.cs" />
     <Compile Include="UsuarioBLL.cs" />
   </ItemGroup>
   <ItemGroup>

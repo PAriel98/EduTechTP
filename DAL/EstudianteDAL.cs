@@ -1,6 +1,7 @@
 ﻿using BE;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -10,8 +11,12 @@ using System.Threading.Tasks;
 namespace DAL
 {
     public class EstudianteDAL 
-    { 
-        private readonly string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=EduTechDB;Integrated Security=True"; 
+    {
+        private readonly string connectionString = ConfigurationManager.ConnectionStrings["EduTechDB"].ConnectionString;
+        //SqlConnection conexion = new SqlConnection(@"Data Source=DESKTOP-JNUAVL4\SQLEXPRESS;Initial Catalog=EduTechDB;Integrated Security=True;");
+
+        private SqlConnection conexion;
+        private SqlTransaction transaccion;
         public bool Insertar(Estudiante estudiante) 
         { 
             using (SqlConnection conexion = new SqlConnection(connectionString)) 

@@ -1,20 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
 namespace DAL
 {
     public class AccesoDAL
     {
-        SqlConnection conexion = new SqlConnection(@"Data Source=DESKTOP-JNUAVL4\SQLEXPRESS;Initial Catalog=EduTechDB;Integrated Security=True;");
+        private string ObtenerCadenaConexion()
+        {
+            var config = ConfigurationManager.ConnectionStrings["EduTechDB"];
+            if (config != null && !string.IsNullOrWhiteSpace(config.ConnectionString))
+            {
+                return config.ConnectionString;
+            }
+            return @"Data Source=.\\SQLEXPRESS;Initial Catalog=EduTechDB;Integrated Security=True;";
+        }
 
+        private SqlConnection conexion; 
+        private SqlTransaction transaccion;
         public void abrir()
         {
-            conexion.Open();
+            if (conexion == null)
+            { 
+                conexion = new SqlConnection(ObtenerCadenaConexion());
+            } 
+            if (conexion.State != ConnectionState.Open) 
+            { conexion.Open();
+            } 
         }
 
         public void cerrar()

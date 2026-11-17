@@ -1,6 +1,7 @@
 ﻿using BE;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -11,7 +12,11 @@ namespace DAL
 {
     public class CursoDAL
     {
-        private readonly string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=EduTechDB;Integrated Security=True";
+        private readonly string connectionString = ConfigurationManager.ConnectionStrings["EduTechDB"].ConnectionString;
+        //SqlConnection conexion = new SqlConnection(@"Data Source=DESKTOP-JNUAVL4\SQLEXPRESS;Initial Catalog=EduTechDB;Integrated Security=True;");
+
+        private SqlConnection conexion;
+        private SqlTransaction transaccion;
         public bool Insertar(CursoBE curso)
         {
             using (SqlConnection conexion = new SqlConnection(connectionString))
@@ -72,6 +77,55 @@ namespace DAL
                 }
             }
             return lista;
+        }
+
+        public DataTable ObtenerInscriptosPorCurso() 
+        { 
+            DataTable dt = new DataTable(); 
+            using (SqlConnection conexion = new SqlConnection(connectionString))
+            { 
+                using (SqlCommand cmd = new SqlCommand("sp_ReporteInscriptosPorCurso", conexion))
+                { 
+                    cmd.CommandType = CommandType.StoredProcedure; 
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd)) 
+                    { 
+                        da.Fill(dt); 
+                    }
+                }
+            }
+            return dt; 
+        }
+        public DataTable ObtenerPromediosPorCurso() 
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection conexion = new SqlConnection(connectionString)) 
+            { 
+                using (SqlCommand cmd = new SqlCommand("sp_ReportePromediosPorCurso", conexion)) 
+                { 
+                    cmd.CommandType = CommandType.StoredProcedure; 
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd)) 
+                    { 
+                        da.Fill(dt); 
+                    }
+                } 
+            } 
+            return dt; 
+        }
+        public DataTable ObtenerAprobadosVsReprobados()
+        { 
+            DataTable dt = new DataTable();
+            using (SqlConnection conexion = new SqlConnection(connectionString)) 
+            { 
+                using (SqlCommand cmd = new SqlCommand("sp_ReporteAprobadosVsReprobados", conexion)) 
+                {
+                    cmd.CommandType = CommandType.StoredProcedure; 
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd)) 
+                    { 
+                        da.Fill(dt); 
+                    } 
+                }
+            } 
+            return dt;
         }
     }
 } 

@@ -8,6 +8,7 @@ namespace BE
 {
     public class Docente : UsuarioAcademico
     {
+        public int DocenteID { get; set; }
         public string Titulo { get; set; }
         public double ValordeHora { get; set; }
     }

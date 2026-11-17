@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    public class CursoBE 
-    { 
-        public int ComponenteID { get; set; } 
-        public string Nombre { get; set; }
-        public decimal Precio { get; set; } 
-        public bool EsProgramaCompleto { get; set; } }
+    public class CursoBE : ComponenteEducativoBE
+    {
+        private bool esProgramaCompleto = false; 
+        public override bool EsProgramaCompleto 
+        {
+            get => false; 
+            set => esProgramaCompleto = false;
+        } 
+        public CursoBE() : base() { }
+        public CursoBE(int id, string nombre, decimal precio) : base(id, nombre, precio) { }
+    }
 }

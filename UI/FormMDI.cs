@@ -10,6 +10,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DAL;
 
 
 namespace UI
@@ -144,6 +145,65 @@ namespace UI
         private void agregarClaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new FormNuevoCurso());
+        }
+
+        private void backupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog
+            { 
+                Filter = "SQL Backup File (*.bak)|*.bak", FileName = "EduTechDB_Backup.bak" }) 
+            { 
+                if (sfd.ShowDialog() == DialogResult.OK) 
+                { 
+                    BackupDAL backupDAL = new BackupDAL();
+                    if (backupDAL.RealizarBackup(sfd.FileName)) 
+                    { 
+                        MessageBox.Show("Copia de seguridad realizada con éxito.", "Backup", MessageBoxButtons.OK, MessageBoxIcon.Information); 
+                    } 
+                }
+            }
+        }
+
+        private void restoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog 
+            { 
+                Filter = "SQL Backup File (*.bak)|*.bak" }) 
+            { 
+                if (ofd.ShowDialog() == DialogResult.OK)
+                { 
+                    BackupDAL backupDAL = new BackupDAL(); 
+                    if (backupDAL.RealizarRestore(ofd.FileName))
+                    { 
+                        MessageBox.Show("Base de datos restaurada correctamente.", "Restore", MessageBoxButtons.OK, MessageBoxIcon.Information); 
+                    }
+                } 
+            }
+        }
+
+        private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new FormEstadisticas());
+        }
+
+        private void informacionClasesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new FormInformacionClases());
+        }
+
+        private void agregarDocenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new FormDocente());
+        }
+
+        private void totalRecaudadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new FormTotalRecaudado());
+        }
+
+        private void recaudacionPorClaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormEnPanel(new FormRecaudacionClase());
         }
     }
 }
